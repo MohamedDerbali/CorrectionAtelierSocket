@@ -1,0 +1,15 @@
+{% extends 'layout.twig' %}
+{% block body %}
+<h1>Hello sockets!</h1>
+<script
+  src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+  crossorigin="anonymous"></script>
+ <script src="/socket.io/socket.io.js"></script>
+ <script>
+    var socket = io('http://localhost:3000');
+    socket.on('notification', function(data){
+      $('body').append('<p>'+data+'</p>');
+    });
+  </script>
+{% endblock %}
